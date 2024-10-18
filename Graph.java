@@ -7,6 +7,7 @@ import java.util.Queue;
  */
 public class Graph {
 
+    //BFS
     public static ArrayList<Integer> Bfs(int V, ArrayList<ArrayList<Integer>> adj){
         ArrayList < Integer > bfs = new ArrayList < > ();
         boolean vis[]=new boolean[V];
@@ -29,44 +30,42 @@ public class Graph {
 
         return bfs;
     }
-    public static void main(String[] args) {
-        int V = 6;
 
-        // Creating the adjacency list for the graph
-        ArrayList<ArrayList<Integer>> adj = new ArrayList<>();
-
-        // Initializing the adjacency list
-        for (int i = 0; i < V; i++) {
-            adj.add(new ArrayList<Integer>());
+    //DFS
+    public static ArrayList<Integer> Dfs(int V, boolean []vis, ArrayList<ArrayList<Integer>> adj,ArrayList<Integer> ans){
+        vis[V]= true;
+        ans.add(V);
+        for (Integer it : adj.get(V)) {
+            if (vis[it]==false) {
+                Dfs(it, vis, adj, ans);
+            }
         }
+        return ans;
+    }
 
-        // Adding edges to create a graph with cycles
-        adj.get(0).add(1);
+    public static void main(String[] args) {
+        int V=5;
+
+        ArrayList < ArrayList < Integer >> adj = new ArrayList < > ();
+        for (int i = 0; i < 5; i++) {
+            adj.add(new ArrayList < > ());
+        }
         adj.get(0).add(2);
-        adj.get(1).add(2);
-        adj.get(1).add(3);
+        adj.get(2).add(0);
+        adj.get(0).add(1);
+        adj.get(1).add(0);
+        adj.get(0).add(3);
+        adj.get(3).add(0);
         adj.get(2).add(4);
-        adj.get(3).add(4);
-        adj.get(3).add(5);
-        adj.get(4).add(5);
-        adj.get(5).add(0); // Cycle edge back to node 0
+        adj.get(4).add(2);
 
-        /*
-          Graph looks like:
-               0
-              / \
-             1 - 2
-            /     \
-           3 - 4 - 5
-               ^   |
-               |___|
-        */
+        
+        boolean[] visited = new boolean[V];
+        ArrayList<Integer> traversalResult = new ArrayList<>();
+        traversalResult = Dfs(0, visited, adj, traversalResult);
 
-        // Perform BFS traversal
-        ArrayList<Integer> bfsResult = Bfs(V, adj);
-
-        // Printing the BFS result
-        System.out.println("BFS Traversal: " + bfsResult);
+        // Printing the DFS result
+        System.out.println("DFS Traversal: " + traversalResult);
     
     }
 }
