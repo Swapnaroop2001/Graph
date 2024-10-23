@@ -150,7 +150,27 @@ public class Graph {
     }
 
 
-   
+    //Flood fill
+    public int[][] floodFill(int[][] image, int sr, int sc, int color) {
+        int baseColor=image[sr][sc];
+        if (baseColor==color) {
+            return image;
+        }
+        dfs(image,sr,sc,baseColor,color);
+        return image;
+    }
+
+    private void dfs(int[][] image, int sr, int sc,int baseColor, int color) {
+         if (sr<0 || sr >= image.length || sc<0 || sc>=image[0].length || image[sr][sc]!= baseColor) {
+            return;
+        }
+
+        image[sr][sc]=color;
+        dfs(image, sr+1, sc,baseColor, color);
+        dfs(image, sr-1, sc,baseColor, color);
+        dfs(image, sr, sc+1,baseColor, color);
+        dfs(image, sr, sc-1,baseColor, color);
+    }
 
     public static void main(String[] args) {
         int V = 5;
