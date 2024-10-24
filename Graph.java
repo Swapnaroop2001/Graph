@@ -151,26 +151,70 @@ public class Graph {
 
 
     //Flood fill
-    public int[][] floodFill(int[][] image, int sr, int sc, int color) {
+    public static int[][] floodFill(int[][] image, int sr, int sc, int color) {
         int baseColor=image[sr][sc];
         if (baseColor==color) {
             return image;
         }
-        dfs(image,sr,sc,baseColor,color);
+        dfsforFloodFill(image,sr,sc,baseColor,color);
         return image;
     }
 
-    private void dfs(int[][] image, int sr, int sc,int baseColor, int color) {
+    private static void dfsforFloodFill(int[][] image, int sr, int sc,int baseColor, int color) {
          if (sr<0 || sr >= image.length || sc<0 || sc>=image[0].length || image[sr][sc]!= baseColor) {
             return;
         }
 
         image[sr][sc]=color;
-        dfs(image, sr+1, sc,baseColor, color);
-        dfs(image, sr-1, sc,baseColor, color);
-        dfs(image, sr, sc+1,baseColor, color);
-        dfs(image, sr, sc-1,baseColor, color);
+        dfsforFloodFill(image, sr+1, sc,baseColor, color);
+        dfsforFloodFill(image, sr-1, sc,baseColor, color);
+        dfsforFloodFill(image, sr, sc+1,baseColor, color);
+        dfsforFloodFill(image, sr, sc-1,baseColor, color);
     }
+
+    //Rotten Oranges
+    public int orangesRotting(int[][] grid) {
+        int directions[][]={{-1,0},{1,0},{0,-1},{0,1} };
+        int freshOranges=0;
+        Queue <int[]> queue= new LinkedList<>();
+
+        for (int i = 0; i < grid.length; i++) {
+            for (int j = 0; j < grid[0].length; j++) {
+                if (grid[i][j]==1) {
+                    freshOranges++;
+                }
+                else if(grid[i][j]==2){
+                    queue.offer(new int[] {i,j});
+                }
+            }
+        }
+
+        if (freshOranges==0) return 0;
+        int minute=-1;
+
+        while (!queue.isEmpty()) {
+            int size=queue.size();
+            minute++;
+            for(int k=0; k< size; k++){
+                int [] pos =queue.poll();
+                int x=pos[0];
+                int y=pos[1];
+
+            for (int [] dir : directions) {
+                int newX=x+dir[0];
+                int newY=y+dir[1];
+                if (newX>=0 && newX < grid.length && newY>=0 && newY< grid[0].length && grid[newX][newY]==1) {
+                    grid[newX][newY]=2;
+                    queue.offer(new int[] {newX, newY});
+                    freshOranges--;
+                }
+              }
+            }            
+        }
+
+        return  freshOranges==0 ? minute: -1;
+    }
+    
 
     public static void main(String[] args) {
         int V = 5;
