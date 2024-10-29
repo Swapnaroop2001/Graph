@@ -1,8 +1,10 @@
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.Set;
 import java.util.List;
 import java.util.HashMap;
+import java.util.HashSet;
 
 /**
  * Graph
@@ -214,6 +216,39 @@ public class Graph {
 
         return  freshOranges==0 ? minute: -1;
     }
+
+
+    //Number of Distinct Islands
+    public int numDistinctIslands(int[][] grid) {
+        Set<List<String>> uniqueIslands = new HashSet<>();
+
+        for (int i = 0; i < grid.length; i++) {
+            for (int j = 0; j < grid[0].length; j++) {
+                if (grid[i][j]==1) {
+                    List<String> shape= new ArrayList<>();
+                    dfsHelperFornumDistinctIslands(grid, i, j, i, j, shape);
+                    uniqueIslands.add(shape);
+                }
+            }
+        }
+
+        return uniqueIslands.size();
+    }
+    private static void dfsHelperFornumDistinctIslands(int [][]grid, int row, int col, int baseRow, int baseCol, List<String> shape){
+        if (row < 0 || row >= grid.length || col < 0 || col >= grid[0].length || grid[row][col] == 0) {
+            return;
+        }
+
+        grid[row][col]=0;
+
+        shape.add((row-baseRow)+","+(col-baseCol));
+
+        dfsHelperFornumDistinctIslands(grid, row-1, col, baseRow, baseCol, shape);
+        dfsHelperFornumDistinctIslands(grid, row+1, col, baseRow, baseCol, shape);
+        dfsHelperFornumDistinctIslands(grid, row, col-1, baseRow, baseCol, shape);
+        dfsHelperFornumDistinctIslands(grid, row, col+1, baseRow, baseCol, shape);
+    }
+
     
 
     public static void main(String[] args) {
