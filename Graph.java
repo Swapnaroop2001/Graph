@@ -249,6 +249,49 @@ public class Graph {
         dfsHelperFornumDistinctIslands(grid, row, col+1, baseRow, baseCol, shape);
     }
 
+    // Distance of nearest cell having 1 | 0/1 Matrix 
+    public int[][] updateMatrix(int[][] mat) {
+        int n = mat.length; 
+        int m = mat[0].length; 
+        
+        int[][] vis = new int[n][m]; 
+        int[][] dist = new int[n][m];
+        
+        Queue<int[]> q = new LinkedList<>();
+        
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
+                if (mat[i][j] == 1) {
+                    dist[i][j] = 0; // distance to itself is 0
+                    vis[i][j] = 1; // mark as visited
+                    q.add(new int[]{i, j}); // add to queue
+                } else {
+                    dist[i][j] = Integer.MAX_VALUE; // initialize as unreachable
+                }
+            }
+        }
+        
+        int[][] directions = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
+
+        while (!q.isEmpty()) {
+            int[] cell = q.poll();
+            int r = cell[0], c = cell[1];
+            
+            for (int[] d : directions) {
+                int nr = r + d[0];
+                int nc = c + d[1];
+                
+                if (nr >= 0 && nr < n && nc >= 0 && nc < m && vis[nr][nc] == 0) {
+                    dist[nr][nc] = dist[r][c] + 1; // update distance
+                    vis[nr][nc] = 1; // mark as visited
+                    q.add(new int[]{nr, nc}); // add to queue
+                }
+            }
+        }
+        
+        return dist;   
+    }
+
     
 
     public static void main(String[] args) {
