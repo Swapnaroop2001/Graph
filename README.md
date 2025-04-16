@@ -7,18 +7,18 @@ This repository contains a collection of essential **Graph Algorithm Solutions**
 ## 📚 Table of Contents
 1. [BFS (Breadth-First Search)](#1-bfs-breadth-first-search)
 2. [DFS (Depth-First Search)](#2-dfs-depth-first-search)
-3. [Number of Islands 🏝️](#3-number-of-islands)
+3. [Number of Islands 🏝️🌊](#3-number-of-islands)
 4. [Max Area of Island 🏝️](#4-max-area-of-island)
 5. [Clone Graph 🧬](#5-clone-graph)
 6. [Flood Fill 🎨](#6-flood-fill)
 7. [Rotten Oranges 🍊](#7-rotten-oranges)
 8. [Number of Distinct Islands 🏖️](#8-number-of-distinct-islands)
-9. [Distance of Nearest Cell Having 1](#9-distance-of-nearest-cell-having-1)
+9. [Distance of Nearest Cell Having 1🛣](#9-distance-of-nearest-cell-having-1)
 10. [Is Graph Bipartite? 🟠🔵](#10-is-graph-bipartite)
 11. [Topological Sort (DFS) 🔼](#11-topological-sort-dfs)
 12. [Walls and Gates ⛩️🧱](#12-walls-and-gates)
 13. [Pacific Atlantic Water Flow 🌊🌍](#13-pacific-atlantic-water-flow)
-14. [Surrounded Regions ❌](#14-surrounded-regions)
+14. [Surrounded Regions ⭕️❌](#14-surrounded-regions)
 15. [Course Schedule 📅🎓](#15-course-schedule)
 
 
