@@ -88,7 +88,7 @@ void dfs(char[][] grid, int i, int j) {
 }
 ```
 
-## 4. Max Area of Island 🏝️
+## 4. Max Area of Island 
 
 ```java
 public int maxAreaOfIsland(int[][] grid) {
