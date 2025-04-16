@@ -7,7 +7,7 @@ This repository contains a collection of essential **Graph Algorithm Solutions**
 ## 📚 Table of Contents
 1. [BFS (Breadth-First Search)](#1-bfs-breadth-first-search)
 2. [DFS (Depth-First Search)](#2-dfs-depth-first-search)
-3. [Number of Islands 🌊🏝️](#3-number-of-islands)
+3. [Number of Islands 🏝️](#3-number-of-islands)
 4. [Max Area of Island 🏝️](#4-max-area-of-island)
 5. [Clone Graph 🧬](#5-clone-graph)
 6. [Flood Fill 🎨](#6-flood-fill)
@@ -62,7 +62,7 @@ public static void Dfs(int node, boolean vis[], ArrayList<ArrayList<Integer>> ad
 }
 ```
 
-## 3. Number of Islands 🌊🏝️
+## 3. Number of Islands
 
 ```java
 public int numIslands(char[][] grid) {
