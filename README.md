@@ -114,7 +114,7 @@ int dfs(int[][] grid, int i, int j) {
 }
 ```
 
-## 5. Clone Graph 🧬
+## 5. Clone Graph 
 
 ```java
 class Node {
@@ -139,7 +139,7 @@ public Node cloneGraph(Node node) {
 }
 ```
 
-## 6. Flood Fill 🎨
+## 6. Flood Fill 
 
 ```java
 public int[][] floodFill(int[][] image, int sr, int sc, int color) {
@@ -158,7 +158,7 @@ private void dfs(int[][] image, int r, int c, int color, int newColor) {
 }
 ```
 
-## 7. Rotten Oranges 🍊
+## 7. Rotten Oranges 
 
 ```java
 public int orangesRotting(int[][] grid) {
@@ -192,7 +192,7 @@ public int orangesRotting(int[][] grid) {
 }
 ```
 
-## 8. Number of Distinct Islands 🏖️
+## 8. Number of Distinct Islands 
 
 ```java
 public int numDistinctIslands(int[][] grid) {
@@ -325,7 +325,7 @@ public static int[] topologicalSort(int V, ArrayList<ArrayList<Integer>> adj) {
 }
 ```
 
-## 12. Walls and Gates ⛩️🧱
+## 12. Walls and Gates 
 
 ```java
     private static final int INF=2147483647;
@@ -366,7 +366,7 @@ public static int[] topologicalSort(int V, ArrayList<ArrayList<Integer>> adj) {
     }
 ```
 
-## 13. Pacific Atlantic Water Flow 🌊🌍
+## 13. Pacific Atlantic Water Flow 
 ```java
 class Solution {
     public List<List<Integer>> pacificAtlantic(int[][] heights) {
@@ -417,7 +417,7 @@ class Solution {
 }
 ```
 
-## 14. Surrounded Regions ❌
+## 14. Surrounded Regions 
 ```java
 
 public void solve(char[][] board) {
@@ -461,7 +461,7 @@ public void solve(char[][] board) {
     }
 ```
 
-## 15. Course Schedule 📅🎓
+## 15. Course Schedule 
 ```java
 class Solution {
 
