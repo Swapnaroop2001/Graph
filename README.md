@@ -66,7 +66,7 @@ public static void Dfs(int node, boolean vis[], ArrayList<ArrayList<Integer>> ad
     }
 }
 ```
-
+[🔝 Back to Table of Contents](#-table-of-contents)
 ## 3. Number of Islands
 
 ```java
