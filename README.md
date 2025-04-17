@@ -29,7 +29,7 @@ This repository contains a collection of essential **Graph Algorithm Solutions**
 
 ---
 
-## 1. BFS (Breadth-First Search)
+## 1. BFS (Breadth-First Search) [🔝 Back to TOC](#-table-of-contents)
 
 ```java
 public static ArrayList<Integer> Bfs(int V, ArrayList<ArrayList<Integer>> adj) {
@@ -53,7 +53,7 @@ public static ArrayList<Integer> Bfs(int V, ArrayList<ArrayList<Integer>> adj) {
 }
 ```
 
-## 2. DFS (Depth-First Search)
+## 2. DFS (Depth-First Search)   [🔝 Back to TOC](#-table-of-contents)
 
 ```java
 public static void Dfs(int node, boolean vis[], ArrayList<ArrayList<Integer>> adj, ArrayList<Integer> ls) {
@@ -67,7 +67,7 @@ public static void Dfs(int node, boolean vis[], ArrayList<ArrayList<Integer>> ad
 }
 ```
 [🔝 Back to Table of Contents](#-table-of-contents)
-## 3. Number of Islands
+## 3. Number of Islands [🔝 Back to TOC](#-table-of-contents)
 
 ```java
 public int numIslands(char[][] grid) {
@@ -93,7 +93,7 @@ void dfs(char[][] grid, int i, int j) {
 }
 ```
 
-## 4. Max Area of Island 
+## 4. Max Area of Island  [🔝 Back to TOC](#-table-of-contents)
 
 ```java
 public int maxAreaOfIsland(int[][] grid) {
@@ -119,7 +119,7 @@ int dfs(int[][] grid, int i, int j) {
 }
 ```
 
-## 5. Clone Graph 
+## 5. Clone Graph [🔝 Back to TOC](#-table-of-contents)
 
 ```java
 class Node {
@@ -144,7 +144,7 @@ public Node cloneGraph(Node node) {
 }
 ```
 
-## 6. Flood Fill 
+## 6. Flood Fill [🔝 Back to TOC](#-table-of-contents)
 
 ```java
 public int[][] floodFill(int[][] image, int sr, int sc, int color) {
@@ -163,7 +163,7 @@ private void dfs(int[][] image, int r, int c, int color, int newColor) {
 }
 ```
 
-## 7. Rotten Oranges 
+## 7. Rotten Oranges [🔝 Back to TOC](#-table-of-contents)
 
 ```java
 public int orangesRotting(int[][] grid) {
@@ -197,7 +197,7 @@ public int orangesRotting(int[][] grid) {
 }
 ```
 
-## 8. Number of Distinct Islands 
+## 8. Number of Distinct Islands [🔝 Back to TOC](#-table-of-contents)
 
 ```java
 public int numDistinctIslands(int[][] grid) {
@@ -226,7 +226,7 @@ private void dfs(int[][] grid, int i, int j, StringBuilder path, String dir) {
 }
 ```
 
-## 9. Distance of Nearest Cell Having 1
+## 9. Distance of Nearest Cell Having 1 [🔝 Back to TOC](#-table-of-contents)
 
 ```java
 public int[][] nearest(int[][] grid) {
@@ -268,7 +268,7 @@ public int[][] nearest(int[][] grid) {
 }
 ```
 
-## 10. Is Graph Bipartite?
+## 10. Is Graph Bipartite? [🔝 Back to TOC](#-table-of-contents)
 
 ```java
 public boolean isBipartite(int[][] graph) {
@@ -297,7 +297,7 @@ public boolean isBipartite(int[][] graph) {
 }
 ```
 
-## 11. Topological Sort (DFS)
+## 11. Topological Sort (DFS) [🔝 Back to TOC](#-table-of-contents)
 
 ```java
 public static void topoSort(int node, boolean[] visited, Stack<Integer> stack, ArrayList<ArrayList<Integer>> adj) {
@@ -330,7 +330,7 @@ public static int[] topologicalSort(int V, ArrayList<ArrayList<Integer>> adj) {
 }
 ```
 
-## 12. Walls and Gates 
+## 12. Walls and Gates [🔝 Back to TOC](#-table-of-contents)
 
 ```java
     private static final int INF=2147483647;
@@ -371,7 +371,7 @@ public static int[] topologicalSort(int V, ArrayList<ArrayList<Integer>> adj) {
     }
 ```
 
-## 13. Pacific Atlantic Water Flow 
+## 13. Pacific Atlantic Water Flow [🔝 Back to TOC](#-table-of-contents)
 ```java
 class Solution {
     public List<List<Integer>> pacificAtlantic(int[][] heights) {
@@ -422,7 +422,7 @@ class Solution {
 }
 ```
 
-## 14. Surrounded Regions 
+## 14. Surrounded Regions [🔝 Back to TOC](#-table-of-contents)
 ```java
 
 public void solve(char[][] board) {
@@ -466,7 +466,7 @@ public void solve(char[][] board) {
     }
 ```
 
-## 15. Course Schedule 
+## 15. Course Schedule [🔝 Back to TOC](#-table-of-contents)
 ```java
 class Solution {
 
@@ -514,7 +514,7 @@ class Solution {
     }
 }
 ```
-## 16. Course Schedule II 	
+## 16. Course Schedule II 	[🔝 Back to TOC](#-table-of-contents)
 ```java
 public int[] findOrder(int numCourses, int[][] prerequisites) {
         int[] indegree = new int[numCourses];
@@ -556,7 +556,7 @@ public int[] findOrder(int numCourses, int[][] prerequisites) {
         return index == numCourses ? order : new int[0]; 
 }
 ```
-## 17. Graph Valid Tree   
+## 17. Graph Valid Tree   [🔝 Back to TOC](#-table-of-contents)
 ```java
 public boolean validTree(int n, int[][] edges) {
         if( edges.length!= n-1){
@@ -601,7 +601,7 @@ public boolean validTree(int n, int[][] edges) {
         return true;
 }
 ```	
-## 18. Number of Connected Components In An Undirected Graph
+## 18. Number of Connected Components In An Undirected Graph [🔝 Back to TOC](#-table-of-contents)
 ```java
 public int countComponents(int n, int[][] edges) {
         // Build the graph
@@ -638,7 +638,7 @@ public int countComponents(int n, int[][] edges) {
         }
 }
 ```   	
-## 19. Redundant Connection   
+## 19. Redundant Connection   [🔝 Back to TOC](#-table-of-contents)
 ```java
 public int[] findRedundantConnection(int[][] edges) {
         int n = edges.length;
@@ -674,7 +674,7 @@ public int[] findRedundantConnection(int[][] edges) {
         return parent[node];
 }
 ```	
-## 20. Word Ladder   
+## 20. Word Ladder   [🔝 Back to TOC](#-table-of-contents)
 ```java
 public int ladderLength(String beginWord, String endWord, List<String> wordList) {
         Set<String> wordSet =new HashSet<>();
