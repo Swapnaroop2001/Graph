@@ -20,6 +20,11 @@ This repository contains a collection of essential **Graph Algorithm Solutions**
 13. [Pacific Atlantic Water Flow 🌊🌍](#13-pacific-atlantic-water-flow)
 14. [Surrounded Regions ⭕️❌](#14-surrounded-regions)
 15. [Course Schedule 📅🎓](#15-course-schedule)
+16. [Course Schedule II 📅🎓](#16-course-schedule-ii)
+17. [Graph Valid Tree 🌳✅](#17-graph-valid-tree)
+18. [Number of Connected Components In An Undirected Graph 🔗📊](#18-number-of-connected-components-in-an-undirected-graph)
+19. [Redundant Connection 🔁⚠️](#19-redundant-connection)
+20. [Word Ladder 🔤🪜](#20-word-ladder)
 
 
 ---
@@ -508,7 +513,211 @@ class Solution {
         return nodesVisited == numCourses;
     }
 }
-
 ```
+## 16. Course Schedule II 	
+```java
+public int[] findOrder(int numCourses, int[][] prerequisites) {
+        int[] indegree = new int[numCourses];
+        List<List<Integer>> adj = new ArrayList<>(numCourses);
+        
+        for (int i = 0; i < numCourses; i++) {
+            adj.add(new ArrayList<>());
+        }
+        
+        for (int[] prerequisite : prerequisites) {
+            int course = prerequisite[0];
+            int preCourse = prerequisite[1];
+            adj.get(preCourse).add(course);
+            indegree[course]++;
+        }
+        
+        Queue<Integer> queue = new LinkedList<>();
+        for (int i = 0; i < numCourses; i++) {
+            if (indegree[i] == 0){
+                queue.offer(i);
+            }
+        }
+        
+        int[] order = new int[numCourses];
+        int index = 0;
 
+        while (!queue.isEmpty()) {
+            int node = queue.poll();
+            order[index++] = node;
+
+            for (int neighbor : adj.get(node)) {
+                indegree[neighbor]--;
+                if (indegree[neighbor] == 0){
+                    queue.offer(neighbor);
+                }
+            }
+        }
+        
+        return index == numCourses ? order : new int[0]; 
+}
+```
+## 17. Graph Valid Tree   
+```java
+public boolean validTree(int n, int[][] edges) {
+        if( edges.length!= n-1){
+            return false;
+        }
+
+        HashMap<Integer, List<Integer> > graph= new HashMap<>();
+        for(int i=0; i< n; i++){
+            graph.put(i, new ArrayList<>());
+        }
+ 
+        for(int i=0; i<edges.length; i++){
+            int u=edges[i][0];
+            int v=edges[i][1];
+
+            graph.get(u).add(v);
+            graph.get(v).add(u);
+        }
+
+        boolean[] visited=new boolean[n];
+        Queue<Integer> q= new LinkedList<Integer>(); 
+        q.offer(0);
+        visited[0]=true;
+
+        while(!q.isEmpty()){
+            int node= q.poll();
+            for (int neighbor : graph.get(node)) {
+                if (visited[neighbor]) continue;
+
+                visited[neighbor] = true;
+                q.offer(neighbor);
+
+                graph.get(neighbor).remove((Integer) node);
+            }
+        }
+
+        for (boolean v : visited)
+            if (!v) {
+                return false;
+            }
+
+        return true;
+}
+```	
+## 18. Number of Connected Components In An Undirected Graph
+```java
+public int countComponents(int n, int[][] edges) {
+        // Build the graph
+        Map<Integer, List<Integer>> graph = new HashMap<>();
+        for (int i = 0; i < n; i++)
+            graph.put(i, new ArrayList<>());
+
+        for (int[] edge : edges) {
+            int u = edge[0], v = edge[1];
+            graph.get(u).add(v);
+            graph.get(v).add(u);
+        }
+
+        boolean[] visited = new boolean[n];
+        int components = 0;
+
+        // DFS for each unvisited node
+        for (int i = 0; i < n; i++) {
+            if (!visited[i]) {
+                dfs(i, graph, visited);
+                components++;
+            }
+        }
+
+        return components;
+    }
+
+    private void dfs(int node, Map<Integer, List<Integer>> graph, boolean[] visited) {
+        visited[node] = true;
+        for (int neighbor : graph.get(node)) {
+            if (!visited[neighbor]) {
+                dfs(neighbor, graph, visited);
+            }
+        }
+}
+```   	
+## 19. Redundant Connection   
+```java
+public int[] findRedundantConnection(int[][] edges) {
+        int n = edges.length;
+        int[] parent = new int[n + 1];
+
+        // Initially, each node is its own parent
+        for (int i = 1; i <= n; i++) {
+            parent[i] = i;
+        }
+
+        for(int[] edge : edges){
+            int u=edge[0];
+            int v=edge[1];
+
+             // Finding parents
+            int parentU = find(parent, u);
+            int parentV = find(parent, v);
+
+            if (parentU == parentV) {
+                return edge;
+            }
+
+            parent[parentU] = parentV;
+        }
+
+        return new int[0];
+    }
+
+    private int find(int[] parent, int node) {
+        if (parent[node] != node) {
+            parent[node] = find(parent, parent[node]);
+        }
+        return parent[node];
+}
+```	
+## 20. Word Ladder   
+```java
+public int ladderLength(String beginWord, String endWord, List<String> wordList) {
+        Set<String> wordSet =new HashSet<>();
+        for(String word: wordList){
+            wordSet.add(word);
+        }
+        if(!wordSet.contains(endWord)) return 0;
+
+        Queue<String> queue = new LinkedList<>();
+        queue.offer(beginWord);
+
+        Set<String> visited = new HashSet<>();
+        visited.add(beginWord);
+
+        int level = 1;
+
+        while(!queue.isEmpty()){
+            int size = queue.size();
+
+            // Process all words at the current level
+            for(int i=0; i< size ; i++){
+                String word = queue.poll();
+
+                if (word.equals(endWord)) return level;
+
+                for(int j=0; j<word.length(); j++){
+                    char[] wordChars= word.toCharArray();
+
+                    for(char c='a'; c<='z'; c++){
+                        wordChars[j] = c;
+                        String newWord = new String(wordChars);
+
+                        if (wordSet.contains(newWord) && !visited.contains(newWord)) {
+                            queue.offer(newWord);
+                            visited.add(newWord);
+                        }
+                    }
+                }
+            }
+            level++;
+ }
+
+        return 0;
+    }
+```
 
